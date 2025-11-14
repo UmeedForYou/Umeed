@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ADDICTION HELP - UMEED</title>
+  <link rel="stylesheet" href="management.css"/>
+  <script src="mod.js" defer></script> </head>
+<body>
+  <header>
+    <nav class="simple-nav">
+      <button onclick="window.location.href='index.html'" class="back-btn">← Back</button>
+      <h2>❤️‍🩹 Addiction Help ❤️‍🩹</h2>
+    </nav>
+  </header>
+
+  <main class="module-page">
+    <section class="stress-section" id="addictionSection">
+        <div class="stress-container">
+          <h2>❤️‍🩹 Addiction Help ❤️‍🩹</h2>
+          
+          <div class="question-box">
+            <h3 id="sobrietyTitle">🗓️ Sobriety Tracker</h3>
+            <div id="progressDisplay" style="font-size: 1.5rem; font-weight: 700; color: #667eea; margin-bottom: 1.5rem;">
+                </div>
+            <div class="options" style="grid-template-columns: 1fr; max-width: 400px; margin: 0 auto;">
+              <button class="option-btn" id="startRecoveryBtn" style="--idx: 1;">🚀 Start My Recovery</button>
+              <button class="option-btn" id="relapseBtn" style="--idx: 2; background: #ffeded; color: #ff6b6b; border-color: #ff6b6b33;" title="Warning: This will reset your progress.">⚠️ Relapse - Start Fresh</button>
+            </div>
+          </div>
+          
+          <div class="question-box">
+            <h3>💭 Consistency & Honesty == Success</h3>
+            <div class="options">
+              <button class="option-btn" onclick="window.open('https://forms.gle/q1xm7j6ZHX7E4UNQ9', '_blank')" style="--idx: 3;">💊 KITNA NASHA?</button>
+              <button class="option-btn" onclick="window.open('https://forms.gle/5HWQSEL2RJ9GA1TA9', '_blank')" style="--idx: 4;">🔄 BADLAAV KI SHURUAAT</button>
+              <button class="option-btn" onclick="window.open('https://forms.gle/hVarXgRczK39cRrx7', '_blank')" style="--idx: 5;">💭 MANN KI BAAT</button>
+            </div>
+          </div>
+          
+          <div class="question-box">
+            <h3>🤝 Community & Resources</h3>
+            <div class="options">
+              <button class="option-btn" onclick="window.open('https://t.me/TeamUmeed')" style="--idx: 6;">👥 Join Telegram Support Group</button>
+              <button class="option-btn" onclick="openModal('registerSessionModal')" style="--idx: 7;">🔗 Register for Weekly Peer Session</button>
+              <button class="option-btn" onclick="openModal('resourceLibraryModal')" style="--idx: 8;">📚 Resource Library</button>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+  
+  <div id="registerSessionModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('registerSessionModal')">&times;</button>
+      <h3 id="modalTitle">🔗 Register for Session</h3>
+      <div id="modalText" style="text-align: center;">
+          <p style="margin-bottom: 1.5rem;">Fill out this quick form to register for our next free weekly peer support session!</p>
+          <a href="https://forms.gle/YourRegistrationFormLink" target="_blank" class="cta-button modal-footer-btn" style="margin-bottom: 1rem;">Go to Registration Form</a>
+          <button class="modal-footer-btn" style="border: none; color: #667eea;" onclick="closeModal('registerSessionModal')">Maybe later</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="resourceLibraryModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('resourceLibraryModal')">&times;</button>
+      <h3 id="modalTitle">📚 Resource Library</h3>
+      <div id="modalText" style="text-align: left;">
+          <ul style="list-style: disc; margin-left: 1.5rem; line-height: 2;">
+              <li><a href="https://drive.google.com/file/d/1f6YgzK-ojjWFqdA_Wg77u288HZEH9CCV/view?usp=sharing" target="_blank" style="color: #667eea; font-weight: 600;">Addiction and Recovery (PDF)</a></li>
+              <li><a href="https://www.youtube.com/playlist?list=PLE_vQWWxgaiGoGh7Pk-6cXTPRLhOo3w99" target="_blank" style="color: #667eea; font-weight: 600;">Mindfulness YouTube Playlist</a></li>
+              <li><a href="#" onclick="alert('Link to a free e-book or PDF on coping skills.')" style="color: #667eea; font-weight: 600;">Coping Skills E-Book (Free Download)</a></li>
+              <li><a href="#" onclick="alert('Information about local helplines or counselors.')" style="color: #667eea; font-weight: 600;">Local Helplines & Counselors</a></li>
+          </ul>
+      </div>
+      <button class="cta-button modal-footer-btn" onclick="closeModal('resourceLibraryModal')">Close</button>
+    </div>
+  </div>
+  
+  </body>
+</html>

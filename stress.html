@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STRESS MANAGE - UMEED</title>
+  <link rel="stylesheet" href="management.css"/>
+  <script src="mod.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="simple-nav">
+      <button onclick="window.location.href='index.html'" class="back-btn">← Back</button>
+      <h2>🧘‍♀️ Stress Management System</h2>
+    </nav>
+  </header> 
+
+  <main class="module-page">
+    <section class="stress-section" id="stressSection">
+      <div class="stress-container">
+        <h2>🧠 Calm the racing mind 🧠</h2>
+
+        <div class="question-box" data-question-id="q1">
+          <h3>Q1. In the past month, how has your interest or enjoyment in activities changed?</h3>
+          <div class="options" style="grid-template-columns: 1fr;">
+            <button class="option-btn" data-option-key="hobbyA" onclick="handleQuestionSelection(this, 'hobbyA')">A. I enjoy things like before; I still make time for hobbies and socializing.</button>
+            <button class="option-btn" data-option-key="hobbyB" onclick="handleQuestionSelection(this, 'hobbyB')">B. I’m a little less interested but still join in sometimes.</button>
+            <button class="option-btn" data-option-key="hobbyC" onclick="handleQuestionSelection(this, 'hobbyC')">C. I often avoid activities I used to like and feel boredom about them.</button>
+            <button class="option-btn" data-option-key="hobbyD" onclick="handleQuestionSelection(this, 'hobbyD')">D. I’ve lost interest in almost everything and rarely do anything enjoyable.</button>
+          </div>
+        </div>
+
+        <div class="journal-box" style="text-align: center; margin-top: 2rem;">
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <button class="option-btn" onclick="openJournal()" style="flex: 1 1 300px; max-width: 400px; padding: 1rem 1.5rem; text-align: center;">🪞 Write to Yourself</button>
+                
+                <button class="option-btn" onclick="openAllSuggestions()" style="flex: 1 1 300px; max-width: 400px; padding: 1rem 1.5rem; text-align: center; border-color: #667eea; color: #667eea;">
+                    📚 View All Suggestions
+                </button>
+            </div>
+        </div>
+        
+      </div>
+    </section>
+  </main>
+  
+  <div id="suggestionModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeSuggestionModal()">&times;</button>
+      <h3 id="modalTitle">Suggestion</h3>
+      <div id="modalText"></div>
+      <button class="cta-button modal-footer-btn" onclick="closeSuggestionModal()">Got it!</button>
+    </div>
+  </div>
+
+  <div id="moodHistoryModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeMoodHistory()">&times;</button>
+      <h3>🗓️ Your Mood History</h3>
+      <ul id="moodList" style="text-align:left; line-height:1.8; list-style:none; padding:0;"></ul
+      <button class="cta-button modal-footer-btn" onclick="closeMoodHistory()">Close</button>
+    </div>
+  </div>
+
+  <div id="allSuggestionsModal" class="modal-overlay hidden">
+    <div class="modal-content" style="max-width: 600px;">
+      <button class="modal-close-btn" onclick="closeModal('allSuggestionsModal')">&times;</button>
+      <h3 style="color: #667eea;">📚 All Past Suggestions</h3>
+      <div id="allSuggestionsList" style="max-height: 400px; overflow-y: auto; padding-right: 15px; text-align: left;">
+        </div>
+      <button class="cta-button modal-footer-btn" onclick="closeModal('allSuggestionsModal')">Got it!</button>
+    </div>
+  </div>
+  <div id="journalModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeJournal()">&times;</button>
+      <h3 style="color: #667eea;">🪞 Mirror Journal</h3>
+      <textarea id="journalText" placeholder="What would you like to tell yourself today?" style="width:100%;height:100px;padding:1rem;border-radius:12px;border:1px solid #ccc;margin-bottom:1rem;"></textarea>
+      
+      <div style="display: flex; justify-content: space-between; gap: 1rem;">
+        <button class="modal-footer-btn" style="flex: 1; border: 2px solid #ff6b6b; color: #ff6b6b; font-size: 0.8rem; text-transform: none;" 
+                onclick="closeModal('journalModal'); openFullJournalHistory();">
+            📝 View All Entries
+        </button>
+        <button class="cta-button modal-footer-btn" style="flex: 2; margin-top: 0;" onclick="saveJournal()">Save Entry</button> 
+      </div>
+
+      <div id="journalHistory" style="margin-top:1rem;text-align:left;font-size:0.95rem;"></div>
+    </div>
+  </div>
+  
+  <div id="fullJournalHistoryModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('fullJournalHistoryModal')">&times;</button>
+      <h3>📝 All Journal Entries</h3>
+      <ul id="fullJournalList" style="text-align:left; line-height:1.8; list-style:none; padding:0; max-height: 300px; overflow-y: auto;"></ul>
+      <button class="cta-button modal-footer-btn" onclick="closeModal('fullJournalHistoryModal')">Close</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NUTRITION & DIET - UMEED</title>
+
+  <link rel="stylesheet" href="nutrition.css"/>
+
+  <script defer src="mod.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="simple-nav">
+      <button onclick="window.location.href='index.html'" class="back-btn">← Back</button>
+      <h2>🍎 Nutrition & Diet</h2>
+    </nav>
+  </header>
+
+  <main class="module-page">
+    <section class="nutrition-section">
+      <div class="nutrition-container">
+        <h2>🥦 Nourish Your Mind & Body 🥦</h2>
+
+        <div class="question-box">
+          <h3>Choose your meal type:</h3>
+          <div class="toggle-buttons">
+            <button id="vegBtn" class="toggle-btn active" onclick="setType('veg')">🥗 Vegetarian</button>
+            <button id="nonvegBtn" class="toggle-btn" onclick="setType('nonveg')">🍗 Non-Vegetarian</button>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <h3>What’s your current goal?</h3>
+          <div class="options">
+            <button class="option-btn" onclick="showDish('energy')">⚡ Boost Energy</button>
+            <button class="option-btn" onclick="showDish('focus')">🧠 Improve Focus</button>
+            <button class="option-btn" onclick="showDish('sleep')">🌙 Sleep Better</button>
+            <button class="option-btn" onclick="showDish('mood')">😊 Uplift Mood</button>
+            <button class="option-btn" onclick="showDish('detox')">🍋 Detox & Refresh</button>
+            <button class="option-btn" onclick="showDish('weight')">⚖️ Manage Weight</button>
+            <button class="option-btn" onclick="showDish('hydration')">💧 Optimize Hydration</button>
+            <button class="option-btn" onclick="showDish('immunity')">🛡️ Strengthen Immunity</button>
+            <button class="option-btn" onclick="showDish('digestive')">🌿 Digestive Health</button>
+          </div>
+        </div>
+
+        <div class="question-box" style="margin-top: 3rem;">
+          <h3 style="background: linear-gradient(90deg, #b393d3, #667eea); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            ✨ Neuro-Nutrient Visualizer ✨
+          </h3>
+          <p style="color: #555; font-style: italic; margin-bottom: 1.5rem;">See what foods directly feed your brain's feel-good chemicals.</p>
+          <div class="options neuro-options" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <button class="option-btn neuro-btn" onclick="openNeuroFact('serotonin')">
+                <span class="icon-placeholder">😊</span>
+                **Serotonin** (Happiness)
+            </button>
+            <button class="option-btn neuro-btn" onclick="openNeuroFact('dopamine')">
+                <span class="icon-placeholder">🚀</span>
+                **Dopamine** (Motivation)
+            </button>
+            <button class="option-btn neuro-btn" onclick="openNeuroFact('gaba')">
+                <span class="icon-placeholder">🧘‍♀️</span>
+                **GABA** (Calmness)
+            </button>
+          </div>
+        </div>
+        <div class="question-box" id="dailyReminderBox">
+          <h3>💡 Daily Mindful Tip</h3>
+          <div id="reminderContent" style="font-style: italic; color: #7f8c8d;"></div>
+        </div>
+
+        <div class="question-box">
+          <h3>📚 Learn More</h3>
+          <div class="options" style="grid-template-columns: 1fr;">
+            <button class="option-btn" onclick="openNutritionFacts()">🧠 The Science of Brain Food</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+    
+  <div id="neuroFactModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('neuroFactModal')">&times;</button>
+      <h3 id="neuroTitle">Brain Chemical: X</h3>
+      <div id="neuroText" style="text-align:left;"></div>
+      <button class="modal-footer-btn" onclick="closeModal('neuroFactModal')">Got it!</button>
+    </div>
+  </div>
+    
+  <div id="suggestionModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeSuggestionModal()">&times;</button>
+      <h3 id="modalTitle">Your Meal Suggestion</h3>
+      <div id="modalText"></div>
+      <button class="modal-footer-btn" onclick="closeSuggestionModal()">Got it!</button>
+    </div>
+  </div>
+
+  <div id="nutritionFactsModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal('nutritionFactsModal')">&times;</button>
+      <h3 style="color:#7b1fa2;">🧠 Science of Brain Food</h3>
+      <div id="nutritionText" style="text-align:left;"></div>
+      <button class="modal-footer-btn" onclick="closeModal('nutritionFactsModal')">Close</button>
+    </div>
+  </div>
+</body>
